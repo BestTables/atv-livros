@@ -3,8 +3,6 @@
 </script>
 
 <template>
-
-  <body>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -26,8 +24,10 @@
           <a href="#">Devoluções</a>
           <div class="img_header">
             <img src="@\assets\Download.png" alt="carrinho">
+            <div class="divididorDois"></div>
             <img src="@\assets\Heart.png" alt="coracao">
-            <img src="@\assets\Icon.png" alt="icone">
+            <div class="divididorDois"></div>
+            <img src="@\assets\Icon.png" alt="icone" class="icon">
           </div>
         </div>
       </div>
@@ -35,7 +35,6 @@
     <main>
 
     </main>
-  </body>
 </template>
 
 <style scoped>
@@ -175,22 +174,25 @@ table {
   border-spacing: 0;
 }
 
-body {
+header {
   font-family: "Oswald";
 }
 
 .container {
   display: flex;
-  margin-left: 17vw;
-  margin-right: 17vw;
+  margin-left: 14.5vw;
+  margin-right: 5vw;
   font-size: x-large;
 }
 
 .container h1 {
-  margin-top: 0.9vh;
+  margin-top: 0.5vh;
+  font-size: x-large;
+  color: #441f05;
 }
 
 .container a img {
+  margin-top: 1vh;
   width: 3vw;
   height: auto;
   border-radius: 15px;
@@ -200,43 +202,57 @@ body {
 .divididor {
   margin-left: 0.5vw;
   margin-right: 0.5vw;
-  width: 0.1vw;
-  height: 6.3vh;
+  margin-top: 1.4vh;
+  width: 5px;
+  height: 6vh;
   background-color: #8B4F24;
+  border-radius: 15px;
 }
 
 .pesquisar input {
   border-radius: 15px;
-  margin-top: 1vh;
+  margin-top: 2.5vh;
   height: 3.3vh;
   width: 20vw;
   position: relative;
 }
 
 .pesquisar {
-  padding-left: 100px;
+  padding-left: 5vw;
 }
 
 .coisas {
-  padding-left: 80px;
-  margin-top: 1vh;
+  padding-left: 4vw;
+  margin-top: 2vh;
   display: flex;
 }
 
 .coisas a {
-  padding-right: 50px;
+  padding-right: 2.7vw;
   text-decoration: none;
   color: #8B4F24;
 }
 
 .pesquisar img {
   position: absolute;
-  left: 48.5vw;
-  top: 2.6vh;
+  left: 47.7vw;
+  top: 4.1vh;
 }
-
+.img_header{
+  display: flex;
+}
 .coisas .img_header img {
   padding-left: 1.5vw;
-  margin-top: 0.2vh;
+  margin-top: 1vh;
+  width: 1.5vw;
+  height: 3vh;
+}
+.divididorDois {
+  margin-left: 1vw;
+  margin-top: 1.4vh;
+  width: 2px;
+  height: 2vh;
+  background-color: #8B4F24;
+  border-radius: 15px;
 }
 </style>
