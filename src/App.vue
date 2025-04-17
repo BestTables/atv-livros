@@ -3,14 +3,11 @@
 </script>
 
 <template>
-  <head>
-    <title></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
-  </head>
 
   <body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <header>
       <div class="container">
         <a href="#">
@@ -18,6 +15,21 @@
         </a>
         <span class="divididor"></span>
         <h1>Apreço a <br> mesas</h1>
+        <div class="pesquisar">
+          <input type="text" v-model="busca" placeholder="  Pesquisar..." class="input">
+          <img src="@\assets\lupa.png" alt="lupa" class="lupa">
+        </div>
+        <div class="coisas">
+          <a href="#">Termos</a>
+          <a href="#">Equipe</a>
+          <a href="#">Envio</a>
+          <a href="#">Devoluções</a>
+          <div class="img_header">
+            <img src="@\assets\Download.png" alt="carrinho">
+            <img src="@\assets\Heart.png" alt="coracao">
+            <img src="@\assets\Icon.png" alt="icone">
+          </div>
+        </div>
       </div>
     </header>
     <main>
@@ -162,31 +174,69 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.poetsen-one-regular {
-  font-family: "Poetsen One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-.poetsen-one-regular {
-  font-family: "Poetsen One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+
+body {
+  font-family: "Oswald";
 }
 
-.container{
+.container {
   display: flex;
+  margin-left: 17vw;
+  margin-right: 17vw;
+  font-size: x-large;
 }
+
+.container h1 {
+  margin-top: 0.9vh;
+}
+
 .container a img {
-  width: 5vw;
+  width: 3vw;
   height: auto;
   border-radius: 15px;
   border: 5px solid #8B4F24;
 }
+
 .divididor {
-  margin-left: 7px;
-  margin-right: 7px;
-  width: 0.2vw;
-  height: 6vh;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  width: 0.1vw;
+  height: 6.3vh;
   background-color: #8B4F24;
+}
+
+.pesquisar input {
+  border-radius: 15px;
+  margin-top: 1vh;
+  height: 3.3vh;
+  width: 20vw;
+  position: relative;
+}
+
+.pesquisar {
+  padding-left: 100px;
+}
+
+.coisas {
+  padding-left: 80px;
+  margin-top: 1vh;
+  display: flex;
+}
+
+.coisas a {
+  padding-right: 50px;
+  text-decoration: none;
+  color: #8B4F24;
+}
+
+.pesquisar img {
+  position: absolute;
+  left: 48.5vw;
+  top: 2.6vh;
+}
+
+.coisas .img_header img {
+  padding-left: 1.5vw;
+  margin-top: 0.2vh;
 }
 </style>
