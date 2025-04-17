@@ -180,7 +180,7 @@ header {
 
 .container {
   display: flex;
-  margin-left: 14.5vw;
+  margin-left: 11.3vw;
   margin-right: 5vw;
   font-size: x-large;
 }
@@ -211,16 +211,16 @@ header {
 
 .pesquisar input {
   border-radius: 15px;
-  margin-top: 2.5vh;
   height: 3.3vh;
   width: 20vw;
-  position: relative;
+  padding-right: 2.5vw;
 }
-
 .pesquisar {
+  position: relative;
   padding-left: 5vw;
+  display: flex;
+  align-items: center;
 }
-
 .coisas {
   padding-left: 4vw;
   margin-top: 2vh;
@@ -235,8 +235,11 @@ header {
 
 .pesquisar img {
   position: absolute;
-  left: 47.7vw;
-  top: 4.1vh;
+  right: 0.5vw;
+  top: 4.2vh;
+  transform: translateY(-50%);
+  width: 1.2vw;
+  height: auto;
 }
 .img_header{
   display: flex;
