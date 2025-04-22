@@ -33,7 +33,8 @@
       </div>
     </header>
     <main>
-
+    <div class="sobre"></div>
+    <div class="imagem+"></div>
     </main>
 </template>
 
@@ -176,8 +177,10 @@ table {
 
 header {
   font-family: "Oswald";
+} 
+html{pl
+  border: 5px solid ;
 }
-
 .container {
   display: flex;
   margin-left: 11.3vw;
