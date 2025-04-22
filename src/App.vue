@@ -3,6 +3,7 @@
 </script>
 
 <template>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -34,8 +35,9 @@
     </header>
     <main>
     <div class="sobre"></div>
-    <div class="imagem+"></div>
+    <div class="imagem_sobre"></div>
     </main>
+ 
 </template>
 
 <style scoped>
@@ -178,9 +180,6 @@ table {
 header {
   font-family: "Oswald";
 } 
-html{pl
-  border: 5px solid ;
-}
 .container {
   display: flex;
   margin-left: 11.3vw;
