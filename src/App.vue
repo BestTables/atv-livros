@@ -33,6 +33,7 @@
     <div class="linhaAntes"></div>
     <section class="sobre1">
       <div class="sobre">
+      <div class="quadrado"><p>MESA DO MÊS</p></div>
         <h3>Mesa de Peroba Rosa <br> circular pé de aranha</h3>
         <ul>
           <li>
@@ -208,7 +209,16 @@ main {
   background-color: #8B4F24;
   border-radius: 15px;
 }
-
+.quadrado{
+  border: 2px solid #8B4F24;
+  padding: 0.2vw;
+  width: 4.5vw;
+  border-radius: 5px;
+  margin-bottom: 2vh;
+}
+.quadrado p{
+  font-weight: 700;
+}
 .sobre1 {
   display: flex;
   align-items: center;
@@ -227,7 +237,7 @@ main {
 .sobre h3 {
   font-weight: bold;
   font-size: xx-large;
-  padding: 0 0 1.5vw 0;
+  padding: 0 0 1vw 0;
 }
 
 .imagem_sobre img {
@@ -243,9 +253,9 @@ main {
 }
 
 .textosafado {
-  font-weight: 500;
+  font-weight: bold;
   color: #441f05;
-  font-size: medium;
+  font-size: 0.6VW;
 }
 
 .botao {
