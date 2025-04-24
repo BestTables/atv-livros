@@ -95,10 +95,10 @@
         </div>
 
         <div class="card-livro">
-          <img src="" alt="mesa 2" class="capa-livro" />
-          <h3>Nome da mesa</h3>
-          <p class="autor">Conceito</p>
-          <p class="preco">R$19,90</p>
+          <img src="@/assets/mesaemLmadeiramaciça.png" alt="mesa 2" class="capa-livro" />
+          <h3>Mesa De Madeira Maciça Demolição Em L</h3>
+          <p class="autor">Rústica, resistente e cheia de personalidade. Feita com madeira de demolição, une estilo e sustentabilidade em um design funcional.</p>
+          <p class="preco">R$4.917,00</p>
           <div class="acoes">
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
@@ -341,7 +341,7 @@ main {
   font-size: 2vw;
   font-weight: bold;
   padding-left: 33vw;
-  margin-bottom: 1vw;
+  margin-bottom: 0.5vw;
   color: #333;
 }
 
@@ -354,15 +354,18 @@ main {
 }
 
 .card-livro {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 2vh 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 20vw;
-  height: 25vh;
+  height: auto;
 }
-
+.card-livro img {
+ width: 20vw;
+ height: auto;
+}
 .capa-livro {
   width: 100%;
   height: auto;
@@ -370,9 +373,15 @@ main {
 }
 
 .card-livro h3 {
-  font-size: 2.5vw;
-  margin: 1vh 0 0.5vh 0;
+  font-size: 1.5vw;
+  margin: 4vh 0 2vh 0;
   color: #333;
+  font-weight: bold;
+}
+.card-livro p {
+  font-size: 1vw;
+  margin: 0 0 2vh 0;
+  font-weight: bold;
 }
 
 .autor {
@@ -383,7 +392,7 @@ main {
 .preco {
   font-weight: bold;
   margin-top: 1vh;
-  font-size: 2vw;
+  font-size: 3vw;
   color: #333;
 }
 
@@ -395,16 +404,17 @@ main {
 }
 
 .botao-comprar {
-  background-color: #23a455;
+  background-color: #8B4F24;
   color: white;
   border: none;
   padding: 1vh 2vw;
   border-radius: 6px;
-  font-size: 2vw;
+  font-size: 1.5vw;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.5vw;
+  gap: 2vw;
+  margin: 0.5vw;
 }
 
 .icone-favorito {
@@ -412,4 +422,5 @@ main {
   font-size: 2vw;
   cursor: pointer;
 }
+
 </style>
