@@ -247,7 +247,7 @@ main {
 .quadrado {
   border: 2px solid #8B4F24;
   padding: 5px;
-  width: 4.5vw;
+  width: 6vw;
   border-radius: 5px;
   margin-bottom: 2vh;
 }
