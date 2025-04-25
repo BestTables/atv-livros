@@ -150,8 +150,8 @@
 header {
   font-family: "Merriweather Sans", sans-serif;
   font-weight: bold;
-  margin-left: 8vw;
-  margin-right: 8vw;
+  margin-left: 5rem;
+  margin-top: 1rem;
 }
 
 main {
@@ -164,25 +164,23 @@ main {
 }
 
 .container h1 {
-  margin-top: 2vh;
+  margin-top: 0.8rem;
   font-size: x-large;
   color: #441f05;
 }
 
 .container a img {
-  margin-top: 1vh;
-  width: 3vw;
+  width: 4rem;
   height: auto;
   border-radius: 15px;
-  border: 5px solid #8B4F24;
+  border: 3px solid #8B4F24;
 }
 
 .divididor {
-  margin-left: 0.5vw;
-  margin-right: 0.5vw;
-  margin-top: 1.3vh;
-  width: 5px;
-  height: 6vh;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 0.2rem;
+  height: 4.5rem;
   background-color: #8B4F24;
   border-radius: 15px;
 }
@@ -191,65 +189,60 @@ main {
   border-radius: 15px;
   padding-left: 0.5vw;
   height: 3.3vh;
-  width: 20vw;
-  padding-right: 2.5vw;
+  width: 20rem;
+  padding-right: 5vw;
 }
 
 .pesquisar {
   position: relative;
-  padding-left: 5vw;
-  margin-top: 1vh;
+  padding-left: 5rem;
   display: flex;
   align-items: center;
 }
 
 .coisas {
-  padding-left: 5.5vw;
-  margin-top: 1.5vh;
+  padding-left: 10rem;
+  margin-top: 1.5rem;
   display: flex;
 }
 
 .coisas a {
-  margin-top: 2vh;
-  padding-right: 2.7vw;
+  padding-right: 4rem;
   text-decoration: none;
   color: #8B4F24;
 }
 
 .pesquisar img {
   position: absolute;
-  right: 0.5vw;
-  top: 3.3vh;
-  transform: translateY(-50%);
-  width: 1.2vw;
+  right: 0.5rem;
+  top: 1.5rem;
+  width: 1.5rem;
   height: auto;
 }
 
 .img_header {
   display: flex;
-  padding-left: 1vw;
+  padding-left: 1rem;
 }
 
 .icons {
-  margin-top: 2vh;
-  padding-left: 1vw;
+  padding-left: 1rem;
 }
 
 .divididorDois {
-  margin-left: 1vw;
-  margin-top: 1.8vh;
+  margin-left: 1rem;
+  margin-top: 0.3rem;
   width: 2px;
-  height: 2vh;
+  height: 1rem;
   background-color: #8B4F24;
   border-radius: 15px;
 }
-
 .quadrado {
   border: 2px solid #8B4F24;
   padding: 5px;
-  width: 6vw;
+  display: inline-block;
   border-radius: 5px;
-  margin-bottom: 2vh;
+  margin-bottom: 1rem;
 }
 
 .quadrado p {
@@ -259,32 +252,32 @@ main {
 .sobre1 {
   display: flex;
   align-items: center;
-  padding: 40px;
-  padding-left: 15vw;
-  margin-left: 10vw;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 15rem;
+  margin-left: 12.5rem;
   background-color: #F0F0F0;
-  height: 55vh;
-  width: 62.9vw;
-}
-
-.sobre {
-  margin-left: vw;
+  border-radius: 15px;
+  height: 30rem;
+  width: 75rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .sobre h3 {
   font-weight: bold;
   font-size: xx-large;
-  padding: 0 0 1vw 0;
+  padding-bottom: 1rem;
 }
 
 .imagem_sobre img {
-  margin-top: -10vh;
-  width: 30vw;
-  margin-right: 10vw;
+  padding-bottom: 7rem;
+  width: 35rem;
+  margin-right: 12.5rem;
 }
 
 .medidas {
-  padding: 1vw 0 0 0;
+  padding: 1.5rem 0 0 0;
   font-size: medium;
   font-weight: bold;
 }
@@ -300,56 +293,56 @@ main {
   background-color: #8B4F24;
   border: none;
   border-radius: 5px;
-  padding: 20px;
+  padding: 1rem;
   color: white;
-  margin: 2.5vw 0 0 0;
+  margin: 2.5rem 0 0 0;
 }
 
 .linhaAntes {
   background-color: #8B4F24;
-  margin-left: 10vw;
-  margin-top: 2vh;
-  width: 80vw;
+  margin-left: 12rem;
+  margin-top: 1.5rem;
+  width: 91rem;
   height: 0.1vh;
   border-radius: 15px;
 }
 
 .linha {
   background-color: #8B4F24;
-  margin-left: 10vw;
-  width: 80vw;
+  margin-left: 12rem;
+  width: 91rem;
   height: 0.1vh;
   border-radius: 15px;
 }
 
 .linhaDois {
   background-color: #8B4F24;
-  margin-left: 10vw;
-  margin-top: 2.8vh;
-  width: 80vw;
+  margin-left: 12rem;
+  margin-top: 3rem;
+  width: 91rem;
   height: 0.1vh;
   border-radius: 15px;
 }
 
 .imagensDois {
   display: flex;
-  padding-top: 3vh;
-  margin-left: 15vw;
+  padding-top: 3rem;
+  margin-left: 15rem;
 }
 
 .imagensDois p {
-  padding-top: 2vh;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   font-weight: bold;
   font-size: larger;
 }
 
 .divididorDepois {
-  margin-left: 5vw;
-  margin-right: 3vw;
+  margin-left: 6rem;
+  margin-right: 3rem;
   width: 2px;
-  height: 5vh;
+  height: 3rem;
   background-color: #8B4F24;
   border-radius: 15px;
 }
@@ -504,7 +497,7 @@ footer {
 }
 
 .esquerdo p a {
-  color: black;
+  color: #F0F0F0;
   padding-left: 0.5vw;
 }
 
@@ -515,7 +508,7 @@ footer {
 .cartoes {
   padding-top: 5vh;
   padding-right: 0.5vw;
-  color: black;
+  color: #F0F0F0;
 }
 
 .linhaDiferente {
