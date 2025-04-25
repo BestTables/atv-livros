@@ -33,17 +33,19 @@
     <div class="linhaAntes"></div>
     <section class="sobre1">
       <div class="sobre">
-      <div class="quadrado"><p>MESA DO MÊS</p></div>
+        <div class="quadrado">
+          <p>MESA DO MÊS</p>
+        </div>
         <h3>Mesa de Peroba Rosa <br> circular pé de aranha</h3>
         <ul>
           <li>
           </li>
           <li>
             <p class="textosafado">
-              Feita em peroba rosa de demolição, essa mesa tem estilo e resistência. O pé de <br> aranha garante firmeza
-              e um visual diferente do comum, com aquele toque retrô <br> que chama atenção sem exagero.
-              Perfeita pra quem curte madeira de verdade e <br> quer uma peça durável com personalidade.
-              Sem firula, só madeira boa e um design <br> que funciona.
+              Feita em peroba rosa de demolição, essa mesa tem estilo e resistência. O pé de aranha garante firmeza
+              e um visual diferente do comum, com aquele toque retrô que chama atenção sem exagero.
+              Perfeita pra quem curte madeira de verdade e quer uma peça durável com personalidade.
+              Sem firula, só madeira boa e um design que funciona.
             </p>
           </li>
           <li>
@@ -82,10 +84,10 @@
       <h2>LANÇAMENTOS</h2>
       <div class="grid-livros">
         <div class="card-livro">
-          <img src="" alt="mesa 1" class="capa-livro" />
-          <h3>Nome da mesa</h3>
-          <p class="autor">Conceito</p>
-          <p class="preco">R$19,90</p>
+          <img src="@/assets/madeiraBranca.png" alt="mesa 1" class="capa-livro" />
+          <h3>Mesa De Jantar Branca 10 Lugares Madeira Rústica</h3>
+          <p class="autor">Criados artesanalmente cada móvel é único. Feitos em madeira pura, sem adição de fibras sintéticas ou aglomerados.</p>
+          <p class="preco">R$4.283,93</p>
           <div class="acoes">
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
@@ -95,10 +97,11 @@
         </div>
 
         <div class="card-livro">
-          <img src="" alt="mesa 2" class="capa-livro" />
-          <h3>Nome da mesa</h3>
-          <p class="autor">Conceito</p>
-          <p class="preco">R$19,90</p>
+          <img src="@/assets/mesaRustica.png" alt="mesa 2" class="capa-livro" />
+          <h3>Mesa Sala De Jantar Em Madeira Maciça Rústica</h3>
+          <p class="autor">Garantimos sua resistência sem sofrer deformações por umidade ou luz solar, se bem cuidados, podendo durar diversos anos em ótimas condições
+          </p>
+          <p class="preco">R$3.699,02</p>
           <div class="acoes">
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
@@ -108,14 +111,46 @@
         </div>
       </div>
     </section>
-
   </main>
+  <footer>
+    <div class="pe">
+    <div class="esquerdo">
+      <h4>BesTables</h4>
+    <p><a href="#"><font-awesome-icon :icon="['fab','square-facebook']" size="2x"/>
+    </a>
+    <a href="#">
+      <font-awesome-icon :icon="['fab', 'instagram']" size="2x"/>
+    </a>
+    <a href="#">
+      <font-awesome-icon :icon="['fab', 'square-twitter']" size="2x"/>
+    </a>
+  </p>
+    </div>
+    <div class="contato">
+    <h4>Contato</h4>
+    <p><font-awesome-icon :icon="['fas', 'phone']" /> +55 47 40045263</p>
+    <p><font-awesome-icon :icon="['fas', 'clock']" /> 8h às 23h - Seg a Sex</p>
+    <p><font-awesome-icon :icon="['fas', 'envelope']" /> contato@bestables.com</p>
+    <p><font-awesome-icon :icon="['fab', 'cc-paypal']" class="cartoes" size = "2x"/>
+    <font-awesome-icon :icon="['fab', 'cc-mastercard']" class="cartoes" size = "2x" />
+    <font-awesome-icon :icon="['fab', 'cc-visa']" class="cartoes" size = "2x" />
+  </p>
+    </div>
+  </div>
+  <div class="linhaDiferente"></div>
+  <div class="direitos">
+    <p>
+      &copy; Alguns direitos reservados. BesTables 2025. </p>
+  </div>
+  </footer>
 </template>
 
 <style scoped>
 header {
   font-family: "Merriweather Sans", sans-serif;
   font-weight: bold;
+  margin-left: 11vw;
+  margin-right: 11vw;
 }
 
 main {
@@ -124,13 +159,12 @@ main {
 
 .container {
   display: flex;
-  margin-left: 11.3vw;
-  margin-right: 5vw;
+
   font-size: x-large;
 }
 
 .container h1 {
-  margin-top: 2.5vh;
+  margin-top: 2vh;
   font-size: x-large;
   color: #441f05;
 }
@@ -185,7 +219,7 @@ main {
 .pesquisar img {
   position: absolute;
   right: 0.5vw;
-  top: 3.4vh;
+  top: 3.3vh;
   transform: translateY(-50%);
   width: 1.2vw;
   height: auto;
@@ -209,16 +243,19 @@ main {
   background-color: #8B4F24;
   border-radius: 15px;
 }
-.quadrado{
+
+.quadrado {
   border: 2px solid #8B4F24;
-  padding: 0.2vw;
+  padding: 5px;
   width: 4.5vw;
   border-radius: 5px;
   margin-bottom: 2vh;
 }
-.quadrado p{
+
+.quadrado p {
   font-weight: 700;
 }
+
 .sobre1 {
   display: flex;
   align-items: center;
@@ -227,7 +264,7 @@ main {
   margin-left: 10vw;
   background-color: #F0F0F0;
   height: 55vh;
-  width: 63.4vw;
+  width: 62.9vw;
 }
 
 .sobre {
@@ -255,7 +292,7 @@ main {
 .textosafado {
   font-weight: bold;
   color: #441f05;
-  font-size: 0.6VW;
+  font-weight: 600;
 }
 
 .botao {
@@ -288,7 +325,7 @@ main {
 .linhaDois {
   background-color: #8B4F24;
   margin-left: 10vw;
-  margin-top: 2.5vh;
+  margin-top: 2.8vh;
   width: 80vw;
   height: 0.2vh;
   border-radius: 15px;
@@ -335,13 +372,17 @@ main {
   font-family: "Merriweather Sans", sans-serif;
   background-color: #F0F0F0;
   width: 80vw;
+  padding-bottom: 15vh;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+  border-radius: 15px;
 }
 
 .lancamentos h2 {
   font-size: 2vw;
   font-weight: bold;
-  padding-left: 33vw;
-  margin-bottom: 1vw;
+  text-align: center;
+  margin-bottom: 0.5vw;
   color: #333;
 }
 
@@ -354,15 +395,18 @@ main {
 }
 
 .card-livro {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 2vh 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 20vw;
-  height: 25vh;
+  height: auto;
 }
-
+.card-livro img {
+ width: 20vw;
+ height: auto;
+}
 .capa-livro {
   width: 100%;
   height: auto;
@@ -370,9 +414,15 @@ main {
 }
 
 .card-livro h3 {
-  font-size: 2.5vw;
-  margin: 1vh 0 0.5vh 0;
+  font-size: 1.5vw;
+  margin: 4vh 0 2vh 0;
   color: #333;
+  font-weight: bold;
+}
+.card-livro p {
+  font-size: 1vw;
+  margin: 0 0 2vh 0;
+  font-weight: bold;
 }
 
 .autor {
@@ -383,7 +433,7 @@ main {
 .preco {
   font-weight: bold;
   margin-top: 1vh;
-  font-size: 2vw;
+  font-size: 3vw;
   color: #333;
 }
 
@@ -395,21 +445,76 @@ main {
 }
 
 .botao-comprar {
-  background-color: #23a455;
+  background-color: #8B4F24;
   color: white;
   border: none;
   padding: 1vh 2vw;
   border-radius: 6px;
-  font-size: 2vw;
+  font-size: 1.5vw;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.5vw;
+  gap: 2vw;
+  margin: 0.5vw;
 }
 
 .icone-favorito {
   color: #777;
   font-size: 2vw;
   cursor: pointer;
+}
+.pe{
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  background-color: #3b2311;
+  margin-left: 7vw;
+  margin-right: 7vw;
+  color: #F0F0F0;
+}
+.esquerdo{
+  padding-top: 10vh;
+  padding-left: 5vw;
+}
+.contato {
+  font-size: large;
+  font-weight: 500;
+  padding-top: 10vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 5vh;
+}
+.contato p{
+  padding-top: 1vh;
+}
+.esquerdo h4{
+  font-weight: bold;
+  font-size: large;
+  padding-left: 0.5vw;
+}
+.esquerdo p a{
+  color: black;
+  padding-left: 0.5vw;
+}
+.esquerdo p{
+  padding-top: 1vh;
+}
+.cartoes{
+  padding-top: 5vh;
+  padding-right: 0.5vw;
+  color: black;
+}
+.linhaDiferente{
+  background-color: #F0F0F0;
+  width: 100vw;
+  height: 0.1vh;
+  border-radius: 15px;
+}
+.direitos{
+  text-align: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 </style>
