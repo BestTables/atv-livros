@@ -327,7 +327,7 @@ main {
   margin-left: 10vw;
   margin-top: 2.8vh;
   width: 80vw;
-  height: 0.2vh;
+  height: 0.1vh;
   border-radius: 15px;
 }
 
