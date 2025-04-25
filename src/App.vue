@@ -382,7 +382,6 @@ main {
   font-size: 2vw;
   font-weight: bold;
   text-align: center;
-  padding-left: 33vw;
   margin-bottom: 0.5vw;
   color: #333;
 }
