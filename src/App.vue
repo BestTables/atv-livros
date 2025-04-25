@@ -150,8 +150,8 @@
 header {
   font-family: "Merriweather Sans", sans-serif;
   font-weight: bold;
-  margin-left: 11vw;
-  margin-right: 11vw;
+  margin-left: 8vw;
+  margin-right: 8vw;
 }
 
 main {
@@ -160,7 +160,6 @@ main {
 
 .container {
   display: flex;
-
   font-size: x-large;
 }
 
