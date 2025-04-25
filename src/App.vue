@@ -12,7 +12,7 @@
       <h1>Apreço a <br> mesas</h1>
       <div class="pesquisar">
         <input type="text" v-model="busca" placeholder="Pesquisar..." class="input">
-        <img src="@\assets\lupa.png" alt="lupa" class="lupa">
+        <img src="@/assets/lupa.png" alt="lupa" class="lupa">
       </div>
       <div class="coisas">
         <a href="#">Termos</a>
@@ -60,7 +60,7 @@
           </li>
         </ul>
       </div>
-      <div class="imagem_sobre"><img src="@\assets\mesa.png" alt="icone" class="icon"></div>
+      <div class="imagem_sobre"><img src="@/assets/mesa.png" alt="icone" class="icon"></div>
       <div class="butao">
       </div>
     </section>
@@ -95,13 +95,16 @@
             <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
           </div>
         </div>
-
         <div class="card-livro">
           <img src="@/assets/mesaRustica.png" alt="mesa 2" class="capa-livro" />
           <h3>Mesa Sala De Jantar Em Madeira Maciça Rústica</h3>
           <p class="autor">Garantimos sua resistência sem sofrer deformações por umidade ou luz solar, se bem cuidados, podendo durar diversos anos em ótimas condições
           </p>
           <p class="preco">R$3.699,02</p>
+          <img src="@/assets/mesaemLmadeiramaciça.png" alt="mesa 2" class="capa-livro" />
+          <h3>Mesa De Madeira Maciça Demolição Em L</h3>
+          <p class="autor">Rústica, resistente e cheia de personalidade. Feita com madeira de demolição, une estilo e sustentabilidade em um design funcional.</p>
+          <p class="preco">R$4.917,00</p>
           <div class="acoes">
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
@@ -382,6 +385,7 @@ main {
   font-size: 2vw;
   font-weight: bold;
   text-align: center;
+  padding-left: 33vw;
   margin-bottom: 0.5vw;
   color: #333;
 }
