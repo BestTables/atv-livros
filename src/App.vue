@@ -86,7 +86,8 @@
         <div class="card-livro">
           <img src="@/assets/madeiraBranca.png" alt="mesa 1" class="capa-livro" />
           <h3>Mesa De Jantar Branca 10 Lugares Madeira Rústica</h3>
-          <p class="autor">Criados artesanalmente cada móvel é único. Feitos em madeira pura, sem adição de fibras sintéticas ou aglomerados.</p>
+          <p class="autor">Criados artesanalmente cada móvel é único. Feitos em madeira pura, sem adição de fibras
+            sintéticas ou aglomerados.</p>
           <p class="preco">R$4.283,93</p>
           <div class="acoes">
             <button class="botao-comprar">
@@ -98,13 +99,10 @@
         <div class="card-livro">
           <img src="@/assets/mesaRustica.png" alt="mesa 2" class="capa-livro" />
           <h3>Mesa Sala De Jantar Em Madeira Maciça Rústica</h3>
-          <p class="autor">Garantimos sua resistência sem sofrer deformações por umidade ou luz solar, se bem cuidados, podendo durar diversos anos em ótimas condições
+          <p class="autor">Garantimos sua resistência sem sofrer deformações por umidade ou luz solar, se bem cuidados,
+            podendo durar diversos anos em ótimas condições
           </p>
           <p class="preco">R$3.699,02</p>
-          <img src="@/assets/mesaemLmadeiramaciça.png" alt="mesa 2" class="capa-livro" />
-          <h3>Mesa De Madeira Maciça Demolição Em L</h3>
-          <p class="autor">Rústica, resistente e cheia de personalidade. Feita com madeira de demolição, une estilo e sustentabilidade em um design funcional.</p>
-          <p class="preco">R$4.917,00</p>
           <div class="acoes">
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
@@ -117,34 +115,34 @@
   </main>
   <footer>
     <div class="pe">
-    <div class="esquerdo">
-      <h4>BesTables</h4>
-    <p><a href="#"><font-awesome-icon :icon="['fab','square-facebook']" size="2x"/>
-    </a>
-    <a href="#">
-      <font-awesome-icon :icon="['fab', 'instagram']" size="2x"/>
-    </a>
-    <a href="#">
-      <font-awesome-icon :icon="['fab', 'square-twitter']" size="2x"/>
-    </a>
-  </p>
+      <div class="esquerdo">
+        <h4>BesTables</h4>
+        <p><a href="#"><font-awesome-icon :icon="['fab', 'square-facebook']" size="2x" />
+          </a>
+          <a href="#">
+            <font-awesome-icon :icon="['fab', 'instagram']" size="2x" />
+          </a>
+          <a href="#">
+            <font-awesome-icon :icon="['fab', 'square-twitter']" size="2x" />
+          </a>
+        </p>
+      </div>
+      <div class="contato">
+        <h4>Contato</h4>
+        <p><font-awesome-icon :icon="['fas', 'phone']" /> +55 47 40045263</p>
+        <p><font-awesome-icon :icon="['fas', 'clock']" /> 8h às 23h - Seg a Sex</p>
+        <p><font-awesome-icon :icon="['fas', 'envelope']" /> contato@bestables.com</p>
+        <p><font-awesome-icon :icon="['fab', 'cc-paypal']" class="cartoes" size="2x" />
+          <font-awesome-icon :icon="['fab', 'cc-mastercard']" class="cartoes" size="2x" />
+          <font-awesome-icon :icon="['fab', 'cc-visa']" class="cartoes" size="2x" />
+        </p>
+      </div>
     </div>
-    <div class="contato">
-    <h4>Contato</h4>
-    <p><font-awesome-icon :icon="['fas', 'phone']" /> +55 47 40045263</p>
-    <p><font-awesome-icon :icon="['fas', 'clock']" /> 8h às 23h - Seg a Sex</p>
-    <p><font-awesome-icon :icon="['fas', 'envelope']" /> contato@bestables.com</p>
-    <p><font-awesome-icon :icon="['fab', 'cc-paypal']" class="cartoes" size = "2x"/>
-    <font-awesome-icon :icon="['fab', 'cc-mastercard']" class="cartoes" size = "2x" />
-    <font-awesome-icon :icon="['fab', 'cc-visa']" class="cartoes" size = "2x" />
-  </p>
+    <div class="linhaDiferente"></div>
+    <div class="direitos">
+      <p>
+        &copy; Alguns direitos reservados. BesTables 2025. </p>
     </div>
-  </div>
-  <div class="linhaDiferente"></div>
-  <div class="direitos">
-    <p>
-      &copy; Alguns direitos reservados. BesTables 2025. </p>
-  </div>
   </footer>
 </template>
 
@@ -407,10 +405,12 @@ main {
   width: 20vw;
   height: auto;
 }
+
 .card-livro img {
- width: 20vw;
- height: auto;
+  width: 20vw;
+  height: auto;
 }
+
 .capa-livro {
   width: 100%;
   height: auto;
@@ -423,6 +423,7 @@ main {
   color: #333;
   font-weight: bold;
 }
+
 .card-livro p {
   font-size: 1vw;
   margin: 0 0 2vh 0;
@@ -467,7 +468,8 @@ main {
   font-size: 2vw;
   cursor: pointer;
 }
-.pe{
+
+.pe {
   display: flex;
   justify-content: space-between;
 }
@@ -478,10 +480,12 @@ footer {
   margin-right: 7vw;
   color: #F0F0F0;
 }
-.esquerdo{
+
+.esquerdo {
   padding-top: 10vh;
   padding-left: 5vw;
 }
+
 .contato {
   font-size: large;
   font-weight: 500;
@@ -490,33 +494,40 @@ footer {
   padding-right: 5vw;
   padding-bottom: 5vh;
 }
-.contato p{
+
+.contato p {
   padding-top: 1vh;
 }
-.esquerdo h4{
+
+.esquerdo h4 {
   font-weight: bold;
   font-size: large;
   padding-left: 0.5vw;
 }
-.esquerdo p a{
+
+.esquerdo p a {
   color: black;
   padding-left: 0.5vw;
 }
-.esquerdo p{
+
+.esquerdo p {
   padding-top: 1vh;
 }
-.cartoes{
+
+.cartoes {
   padding-top: 5vh;
   padding-right: 0.5vw;
   color: black;
 }
-.linhaDiferente{
+
+.linhaDiferente {
   background-color: #F0F0F0;
   width: 100vw;
   height: 0.1vh;
   border-radius: 15px;
 }
-.direitos{
+
+.direitos {
   text-align: center;
   padding-top: 3vh;
   padding-bottom: 3vh;
