@@ -383,18 +383,19 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 3vw;
-  padding-left: 15vw;
+  padding-left: 5vw;
   padding-top: 3vh;
 }
 
 .card-livro {
   background-color: rgb(255, 255, 255);
-  padding: 2vh 2vw;
+  padding: 2vh 7vw;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 20vw;
   height: auto;
+
 }
 
 .card-livro img {
