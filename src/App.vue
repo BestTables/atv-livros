@@ -143,11 +143,77 @@
       <h2>Veja nossos produtos</h2>
       <div class="cardsgerais">
         <div class="cardmesa">
-          <img src="@/assets/mesabizarra.png" alt="mesa 2" class="capa-livro" />
-          <h3>Nome da mesa</h3>
-          <p class="autor"> texto mesa
+          <img src="@/assets/mesabizarra.png" alt="mesa 2" class="mesa1" />
+          <h3>Mesa de Jantar Russell</h3>
+          <p class="autor">Design moderno com tampo em laca e vidro fendi, base capuccino, perfeita para valorizar sua sala de jantar.
           </p>
-          <p class="preco">preço mesa R$</p>
+          <p class="preco">R$2.870,00</p>
+          <div class="acoes">
+            <button class="botao-comprar">
+              <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
+            </button>
+            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+        </div>
+        </div>
+        <div class="cardmesa">
+          <img src="@\assets\-mesa-de-jantar-redonda-nairobi-verniz-nozes-4-lugares.webp" alt="mesa 2" class="nairobi"/>
+          <h3>Mesa redonda nairobi verniz</h3>
+          <p class="autor"> Design elegante com acabamento em verniz nozes, ideal para modernizar sua sala de jantar.
+          </p>
+          <p class="preco">R$ 996,00</p>
+          <div class="acoes">
+            <button class="botao-comprar">
+              <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
+            </button>
+            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+        </div>
+        </div>
+        <div class="cardmesa">
+          <img src="@\assets\mesaemLmadeiramaciça.png" alt="mesa 2" class="mesa3" />
+          <h3>
+            Mesa L de madeira maciça</h3>
+          <p class="autor"> Bancada em L de madeira maciça, estilo rústico, ideal para otimizar seu espaço.
+          </p>
+          <p class="preco">R$ 4.917,00</p>
+          <div class="acoes">
+            <button class="botao-comprar">
+              <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
+            </button>
+            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+        </div>
+        </div>
+        <div class="cardmesa">
+          <img src="@\assets\mesa escrivaninha.webp" alt="mesa 2" class="mesa4" />
+          <h3>Mesa Freijó Madeirado</h3>
+          <p class="autor"> Mesa de computador freijó com pés metalon, estilo industrial, perfeita para seu ambiente.
+          </p>
+          <p class="preco">R$ 177</p>
+          <div class="acoes">
+            <button class="botao-comprar">
+              <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
+            </button>
+            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+        </div>
+        </div>
+        <div class="cardmesa">
+          <img src="@\assets\mesamadeira6lugarhelena.jpg" alt="mesa 2" class="mesa5" />
+          <h3>Mesa madeira Helena imbuia.</h3>
+          <p class="autor"> Mesa de madeira imbuia, com design clássico, ideal para refeições em família.
+          </p>
+          <p class="preco">R$ 348,90</p>
+          <div class="acoes">
+            <button class="botao-comprar">
+              <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
+            </button>
+            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+        </div>
+        </div>
+        <div class="cardmesa">
+          <img src="@\assets\mesainovadorareceba.webp" alt="mesa 2" class="mesa6" />
+          <h3> Mesa Jantar Extensível Lisboa</h3>
+          <p class="autor"> Mesa inovadora com acabamento off white e freijó, ideal para ampliar seu espaço e proporcionar elegância ao ambiente.
+          </p>
+          <p class="preco">R$ 699,99</p>
           <div class="acoes">
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
@@ -601,8 +667,8 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 3vw;
-  padding-left: 5vw;
-  padding-top: 3vh;
+  margin-left: 5vw;
+  margin-top: 4vh;
 }
 
 .cardmesa {
@@ -611,25 +677,59 @@ footer {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 10vw;
-  height: auto;
+  width: 8vw;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardmesa img {
-  width: 20vw;
+  width: 15vw;
   height: auto;
 }
 
+.cardmesa img.nairobi{
+  width: 11vw;
+  height: auto;
+  padding-top:8vh ;
+}
+.cardmesa img.mesa3{
+  width: 17vw;
+  height: auto;
+  padding-top:13vh ;
+}
+.cardmesa img.mesa4{
+  width: 17vw;
+  height: auto;
+  padding:10.5vh 0 7vh 0 ;
+}
+.cardmesa img.mesa5{
+  width: 15.5vw;
+  height: auto;
+  padding:4vh 0 4vh 0 ;
+}
+.cardmesa img.mesa6{
+  width: 14vw;
+  height: auto;
+  padding:3vh 0 4vh 0 ;
+}
+
 .cardmesa h3 {
-  font-size: 1.5vw;
+  font-size: 1.0vw;
   margin: 4vh 0 2vh 0;
   color: #333;
   font-weight: bold;
 }
 
 .cardmesa p {
-  font-size: 1vw;
+  font-size: 0.7vw;
   margin: 0 0 2vh 0;
+  font-weight: bold;
+}
+.cardmesa p.preco {
+  font-size: 0.9vw;
   font-weight: bold;
 }
 </style>
