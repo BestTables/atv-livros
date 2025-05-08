@@ -93,7 +93,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-comeco"
+  :style="{ color: favoritos.includes(10) ? 'brown' : '' }"
+  @click="toggleFavorito(10)"
+/>
           </div>
         </div>
         <div class="card-livro">
@@ -107,7 +112,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-comeco"
+  :style="{ color: favoritos.includes(9) ? 'brown' : '' }"
+  @click="toggleFavorito(9)"
+/>
           </div>
         </div>
         <div class="card-livro">
@@ -120,7 +130,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-comeco"
+  :style="{ color: favoritos.includes(8) ? 'brown' : '' }"
+  @click="toggleFavorito(8)"
+/>
           </div>
         </div>
         <div class="card-livro">
@@ -133,7 +148,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-comeco"
+  :style="{ color: favoritos.includes(7) ? 'brown' : '' }"
+  @click="toggleFavorito(7)"
+/>
           </div>
         </div>
       </div>
@@ -152,8 +172,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
-        </div>
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-final"
+  :style="{ color: favoritos.includes(6) ? 'brown' : '' }"
+  @click="toggleFavorito(6)"
+/>    </div>
         </div>
         <div class="cardmesa">
           <img src="@\assets\-mesa-de-jantar-redonda-nairobi-verniz-nozes-4-lugares.webp" alt="mesa 2" class="nairobi"/>
@@ -165,7 +189,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-final"
+  :style="{ color: favoritos.includes(5) ? 'brown' : '' }"
+  @click="toggleFavorito(5)"
+/>
         </div>
         </div>
         <div class="cardmesa">
@@ -179,7 +208,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-final"
+  :style="{ color: favoritos.includes(4) ? 'brown' : '' }"
+  @click="toggleFavorito(4)"
+/>
         </div>
         </div>
         <div class="cardmesa">
@@ -187,12 +221,17 @@
           <h3>Mesa Freijó Madeirado</h3>
           <p class="autor"> Mesa de computador freijó com pés metalon, estilo industrial, perfeita para seu ambiente.
           </p>
-          <p class="preco">R$ 177</p>
+          <p class="preco">R$ 369,99  </p>
           <div class="acoes">
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-final"
+  :style="{ color: favoritos.includes(3) ? 'brown' : '' }"
+  @click="toggleFavorito(3)"
+/>
         </div>
         </div>
         <div class="cardmesa">
@@ -205,7 +244,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-final"
+  :style="{ color: favoritos.includes(2) ? 'brown' : '' }"
+  @click="toggleFavorito(2)"
+/>
         </div>
         </div>
         <div class="cardmesa">
@@ -218,7 +262,12 @@
             <button class="botao-comprar">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
             </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
+            <font-awesome-icon
+  :icon="['fas', 'heart']"
+  class="icone-favorito-final"
+  :style="{ color: favoritos.includes(1) ? 'brown' : '' }"
+  @click="toggleFavorito(1)"
+/>
         </div>
         </div>
       </div>
@@ -257,7 +306,22 @@
   </footer>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+
+const favoritos = ref([])
+
+function toggleFavorito(index) {
+  if (favoritos.value.includes(index)) {
+    favoritos.value = favoritos.value.filter(i => i !== index)
+  } else {
+    favoritos.value.push(index)
+  }
+}
+</script>
+
 <style scoped>
+
 header {
   font-family: "Merriweather Sans", sans-serif;
   font-weight: bold;
@@ -298,10 +362,10 @@ main {
 
 .pesquisar input {
   border-radius: 15px;
-  padding-left: 0.5vw;
-  height: 3.3vh;
+  padding-left: 0.8rem;
+  height: 2rem;
   width: 20rem;
-  padding-right: 5vw;
+  padding-right: 3.12rem;
 }
 
 .pesquisar {
@@ -460,88 +524,83 @@ main {
 
 .bloco {
   display: flex;
-  margin-left: 5.5vw;
+  margin-left: 8.8rem;
 }
 
 .iconsDois {
-  padding-top: 0.5vh;
-  padding-left: 3vw;
-  font-size: 2vw;
+  padding-top: 0.3rem;
+  padding-left: 0.5rem;
+  font-size: 2.5rem;
   color: #441f05
 }
 
 .lancamentos {
-  padding-top: 5vh;
-  margin-left: 10vw;
+  padding-top: 4rem;
+  margin-left: 12rem;
   font-family: "Merriweather Sans", sans-serif;
   background-color: #F0F0F0;
-  width: 80vw;
-  padding-bottom: 15vh;
-  margin-bottom: 5vh;
-  margin-top: 5vh;
+  width: 91.3rem;
+  padding-bottom: 8rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
   border-radius: 15px;
 }
 
 .lancamentos h2 {
-  font-size: 2vw;
+  font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 0.5vw;
+  margin-bottom: 0.2rem;
   color: #333;
 }
 
 .grid-livros {
   display: flex;
   flex-wrap: wrap;
-  gap: 3vw;
-  padding-left: 5vw;
-  padding-top: 3vh;
+  gap: 2rem;
+  padding-left: 5.5rem;
+  padding-top: 3rem;
 }
 
 .card-livro {
   background-color: rgb(255, 255, 255);
-  padding: 2vh 7vw;
+  padding: 1rem 8.2rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 20vw;
+  width: 23rem;
   height: auto;
 
 }
 
 .card-livro img {
-  width: 20vw;
+  width: 22rem;
   height: auto;
 }
 
-.capa-livro {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
+
 
 .card-livro h3 {
-  font-size: 1.5vw;
-  margin: 4vh 0 2vh 0;
+  font-size: 1.5rem;
+  margin: 1rem 0 2rem 0;
   color: #333;
   font-weight: bold;
 }
 
 .card-livro p {
-  font-size: 1vw;
-  margin: 0 0 2vh 0;
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
   font-weight: bold;
 }
 
 .autor {
-  font-size: 1.8vw;
   color: #555;
 }
 
 .preco {
   font-weight: bold;
-  margin-top: 1vh;
-  font-size: 3vw;
+  margin-top: 1rem;
+  font-size: 3rem;
   color: #333;
 }
 
@@ -549,27 +608,38 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1vh;
+  margin-top: 1rem;
 }
 
 .botao-comprar {
   background-color: #8B4F24;
   color: white;
   border: none;
-  padding: 1vh 2vw;
+  padding: 0.5rem 2rem;
   border-radius: 6px;
-  font-size: 1.5vw;
+  font-size: 1.7rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 2vw;
-  margin: 0.5vw;
+  gap: 2.3rem;
+  margin: 1rem;
 }
 
-.icone-favorito {
+.icone-favorito-final {
   color: #777;
-  font-size: 2vw;
+  font-size: 2.3rem;
   cursor: pointer;
+  cursor: pointer;
+  transition: color 0.3s;
+  width: 7rem;
+}
+.icone-favorito-comeco{
+  color: #777;
+  padding:0 4.7rem;
+  font-size: 2.7rem;
+  cursor: pointer;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .pe {
@@ -579,81 +649,81 @@ main {
 
 footer {
   background-color: #3b2311;
-  margin-left: 7vw;
-  margin-right: 7vw;
+  margin-left: 7rem;
+  margin-right: 7rem;
   color: #F0F0F0;
 }
 
 .esquerdo {
-  padding-top: 10vh;
-  padding-left: 5vw;
+  padding-top: 6rem;
+  padding-left: 5rem;
 }
 
 .contato {
   font-size: large;
   font-weight: 500;
-  padding-top: 10vh;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  padding-bottom: 5vh;
+  padding-top: 6rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 3rem;
 }
 
 .contato p {
-  padding-top: 1vh;
+  padding-top: 0.9rem;
 }
 
 .esquerdo h4 {
   font-weight: bold;
   font-size: large;
-  padding-left: 0.5vw;
+  padding-left: 0.5rem;
 }
 
 .esquerdo p a {
   color: #F0F0F0;
-  padding-left: 0.5vw;
+  padding-left: 0.5rem;
 }
 
 .esquerdo p {
-  padding-top: 1vh;
+  padding-top: 1rem;
 }
 
 .cartoes {
-  padding-top: 5vh;
-  padding-right: 0.5vw;
-  color: #F0F0F0;
+  padding-top: 5rem;
+  padding-right: 0.5rem;
+  color: #ffffff;
 }
 
 .linhaDiferente {
   background-color: #F0F0F0;
-  width: 100vw;
-  height: 0.1vh;
+  width: 100rem;
+  height: 0.1rem;
   border-radius: 15px;
 }
 
 .direitos {
   text-align: center;
-  padding-top: 3vh;
-  padding-bottom: 3vh;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 .produtos h2 {
-  font-size: 2vw;
+  font-size: 2.3rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 0.5vw;
+  margin-bottom: 0.5rem;
   color: #333;
 }
 .produtos {
   background-color: #F0F0F0;
   border-radius: 15px;
-  padding-top: 5vh;
-  margin-left: 10vw;
+  padding-top: 4rem;
+  margin-left: 11.3rem;
   font-family: "Merriweather Sans", sans-serif;
-  width: 80vw;
-  padding-bottom: 15vh;
-  margin-bottom: 5vh;
-  margin-top: 5vh;
+  width: 92.3rem;
+  padding-bottom: 5rem;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
   border-radius: 15px;
-}
+} 
 .linhaquetadividindo {
   background-color: #8B4F24;
   margin-left: 12rem;
@@ -679,7 +749,6 @@ footer {
   text-align: center;
   width: 8vw;
   display: flex;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -698,7 +767,7 @@ footer {
 .cardmesa img.mesa3{
   width: 17vw;
   height: auto;
-  padding-top:13vh ;
+  padding-top:12vh ;
 }
 .cardmesa img.mesa4{
   width: 17vw;
