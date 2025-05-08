@@ -1,5 +1,41 @@
 <script setup>
+import { ref } from 'vue';
 
+const mostrarCarrinho = ref(false);
+const carrinho = ref([]);
+
+const lancamentos = ref([
+  {
+    id: 1,
+    nome: 'Mesa De Jantar Branca 10 Lugares Madeira Rústica',
+    descricao: 'Criados artesanalmente cada móvel é único. Feitos em madeira pura, sem adição de fibras sintéticas ou aglomerados.',
+    preco: 4283.93,
+    imagem: '@/assets/madeiraBranca.png'
+  },
+  {
+    id: 2,
+    nome: 'Mesa Sala De Jantar Em Madeira Maciça Rústica',
+    descricao: 'Garantimos sua resistência sem sofrer deformações por umidade ou luz solar, se bem cuidados, podendo durar diversos anos em ótimas condições',
+    preco: 3699.02,
+    imagem: '@/assets/mesaRustica.png'
+  }
+]);
+
+const toggleCarrinho = () => {
+  mostrarCarrinho.value = !mostrarCarrinho.value;
+};
+
+const adicionarAoCarrinho = (mesa) => {
+  if(!carrinho.value.find(m => m.id === mesa.id)){
+
+    carrinho.value.push(mesa);
+  }
+};
+
+const finalizarCompra = () => {
+  // Lógica para finalizar a compra
+  alert('Compra finalizada!');
+};
 </script>
 
 <template>
@@ -20,7 +56,22 @@
         <a href="#">Envio</a>
         <a href="#">Devoluções</a>
         <div class="img_header">
-          <font-awesome-icon :icon="['fas', 'cart-shopping']" class="icons" />
+          <!-- Coloque isso dentro da tag <header> -->
+<div @click="toggleCarrinho" class="icone-carrinho">
+  <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+</div>
+<div v-if="mostrarCarrinho" class="carrinho">
+  <h3>Seu Carrinho</h3>
+  <!-- Aqui você pode adicionar os itens do carrinho -->
+  <ul>
+    <li v-for="item in carrinho" :key="item.id">
+      {{ item.nome }} - R$ {{ item.preco.toFixed(2) }}
+    </li>
+  </ul>
+  <button @click="finalizarCompra">Finalizar Compra</button>
+  <button @click="toggleCarrinho">Fechar Carrinho</button>
+</div>
+
           <div class="divididorDois"></div>
           <font-awesome-icon :icon="['fas', 'heart']" class="icons" />
           <div class="divididorDois"></div>
@@ -81,37 +132,22 @@
       <div class="linhaDois"></div>
     </div>
     <section class="lancamentos">
-      <h2>LANÇAMENTOS</h2>
-      <div class="grid-livros">
-        <div class="card-livro">
-          <img src="@/assets/madeiraBranca.png" alt="mesa 1" class="capa-livro" />
-          <h3>Mesa De Jantar Branca 10 Lugares Madeira Rústica</h3>
-          <p class="autor">Criados artesanalmente cada móvel é único. Feitos em madeira pura, sem adição de fibras
-            sintéticas ou aglomerados.</p>
-          <p class="preco">R$4.283,93</p>
-          <div class="acoes">
-            <button class="botao-comprar">
-              <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
-            </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
-          </div>
-        </div>
-        <div class="card-livro">
-          <img src="@/assets/mesaRustica.png" alt="mesa 2" class="capa-livro" />
-          <h3>Mesa Sala De Jantar Em Madeira Maciça Rústica</h3>
-          <p class="autor">Garantimos sua resistência sem sofrer deformações por umidade ou luz solar, se bem cuidados,
-            podendo durar diversos anos em ótimas condições
-          </p>
-          <p class="preco">R$3.699,02</p>
-          <div class="acoes">
-            <button class="botao-comprar">
-              <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
-            </button>
-            <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
-          </div>
-        </div>
+  <h2>LANÇAMENTOS</h2>
+  <div class="grid-livros">
+    <div v-for="mesa in lancamentos" :key="mesa.id" class="card-livro">
+      <img :src="mesa.imagem" :alt="mesa.nome" class="capa-livro" />
+      <h3>{{ mesa.nome }}</h3>
+      <p class="autor">{{ mesa.descricao }}</p>
+      <p class="preco">R$ {{ mesa.preco.toFixed(2) }}</p>
+      <div class="acoes">
+        <button class="botao-comprar" @click="adicionarAoCarrinho(mesa)">
+          <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
+        </button>
+        <font-awesome-icon :icon="['fas', 'heart']" class="icone-favorito" />
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   </main>
   <footer>
     <div class="pe">
@@ -524,4 +560,44 @@ footer {
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
+.carrinho {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  background-color: white;
+  border: 1px solid #8B4F24;
+  padding: 2rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 300px;
+  z-index: 1000;
+}
+
+.carrinho h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.carrinho ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.carrinho li {
+  margin-bottom: 1rem;
+}
+
+.carrinho button {
+  background-color: #8B4F24;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.carrinho button:hover {
+  background-color: #6d3e1f;
+}
+
 </style>
