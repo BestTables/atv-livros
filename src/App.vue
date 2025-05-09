@@ -1,23 +1,88 @@
 <script setup>
 import { ref } from 'vue';
+const favoritos = ref([]);
+
+const toggleFavorito = (id) => {
+  if (favoritos.value.includes(id)) {
+    favoritos.value = favoritos.value.filter(fav => fav !== id);
+  } else {
+    favoritos.value.push(id);
+  }
+};
 
 const mostrarCarrinho = ref(false);
 const carrinho = ref([]);
 
 const lancamentos = ref([
   {
-    id: 1,
+    id: 10,
     nome: 'Mesa De Jantar Branca 10 Lugares Madeira Rústica',
     descricao: 'Criados artesanalmente cada móvel é único. Feitos em madeira pura, sem adição de fibras sintéticas ou aglomerados.',
     preco: 4283.93,
     imagem: '@/assets/madeiraBranca.png'
   },
   {
-    id: 2,
+    id: 11,
     nome: 'Mesa Sala De Jantar Em Madeira Maciça Rústica',
     descricao: 'Garantimos sua resistência sem sofrer deformações por umidade ou luz solar, se bem cuidados, podendo durar diversos anos em ótimas condições',
     preco: 3699.02,
     imagem: '@/assets/mesaRustica.png'
+  },
+  {
+    id: 8,
+    nome: "Mesa Ripada Avelã Vidro Off White Inspirare",
+    descricao: "Com acabamento ripado em avelã e tampo de vidro off white, essa mesa une charme contemporâneo e funcionalidade para sua sala de jantar.",
+    preco: 2735.79,
+    imagem: "@/assets/mesabranca.png"
+  },
+  {
+    id: 7,
+    nome: "Mesa De Madeira Champagne Tampo Vidro",
+    descricao: "Com design elegante, a mesa de madeira champagne com tampo de vidro preto combina sofisticação e modernidade para seu ambiente.",
+    preco: 1999.00,
+    imagem: "@/assets/mesapreta.png"
+  },
+  {
+    id: 6,
+    nome: "Mesa de Jantar Russell",
+    descricao: "Design moderno com tampo em laca e vidro fendi, base capuccino, perfeita para valorizar sua sala de jantar.",
+    preco: 2870.00,
+    imagem: "@/assets/mesabizarra.png"
+  },
+  {
+    id: 5,
+    nome: "Mesa redonda Nairobi Verniz",
+    descricao: "Design elegante com acabamento em verniz nozes, ideal para modernizar sua sala de jantar.",
+    preco: 996.00,
+    imagem: "@/assets/-mesa-de-jantar-redonda-nairobi-verniz-nozes-4-lugares.webp"
+  },
+  {
+    id: 4,
+    nome: "Mesa L de madeira maciça",
+    descricao: "Bancada em L de madeira maciça, estilo rústico, ideal para otimizar seu espaço.",
+    preco: 4917.00,
+    imagem: "@/assets/mesaemLmadeiramaciça.png"
+  },
+  {
+    id: 3,
+    nome: "Mesa Freijó Madeirado",
+    descricao: "Mesa de computador freijó com pés metalon, estilo industrial, perfeita para seu ambiente.",
+    preco: 369.99,
+    imagem: "@/assets/mesa escrivaninha.webp"
+  },
+  {
+    id: 2,
+    nome: "Mesa madeira Helena imbuia",
+    descricao: "Mesa de madeira imbuia, com design clássico, ideal para refeições em família.",
+    preco: 348.90,
+    imagem: "@/assets/mesamadeira6lugarhelena.jpg"
+  },
+  {
+    id: 1,
+    nome: "Mesa Jantar Extensível Lisboa",
+    descricao: "Mesa inovadora com acabamento off white e freijó, ideal para ampliar seu espaço e proporcionar elegância ao ambiente.",
+    preco: 699.99,
+    imagem: "@/assets/mesainovadorareceba.webp"
   }
 ]);
 
@@ -147,8 +212,25 @@ const finalizarCompra = () => {
       </div>
     </div>
   </div>
-</section>
-  </main>
+
+  <div class="cardmesa" v-for="mesa in lancamentos" :key="mesa.id">
+  <img :src="mesa.imagem" :alt="mesa.nome" class="mesa-img" />
+  <h3>{{ mesa.nome }}</h3>
+  <p class="autor">{{ mesa.descricao }}</p>
+  <p class="preco">R$ {{ mesa.preco.toFixed(2) }}</p>
+  <div class="acoes">
+    <button class="botao-comprar" @click="adicionarAoCarrinho(mesa)">
+      <font-awesome-icon :icon="['fas', 'cart-shopping']" /> Comprar
+    </button>
+    <font-awesome-icon
+      :icon="['fas', 'heart']"
+      class="icone-favorito-final"
+      :style="{ color: favoritos.includes(mesa.id) ? 'brown' : '' }"
+      @click="toggleFavorito(mesa.id)"
+    />
+  </div>
+</div>
+ </main>
   <footer>
     <div class="pe">
       <div class="esquerdo">
@@ -599,5 +681,101 @@ footer {
 .carrinho button:hover {
   background-color: #6d3e1f;
 }
+.produtos h2 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+.produtos {
+  background-color: #F0F0F0;
+  border-radius: 15px;
+  padding-top: 4rem;
+  margin-left: 11.3rem;
+  font-family: "Merriweather Sans", sans-serif;
+  width: 92.3rem;
+  padding-bottom: 5rem;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+  border-radius: 15px;
+}
+.linhaquetadividindo {
+  background-color: #8B4F24;
+  margin-left: 12rem;
+  margin-top: 2rem;
+  width: 91rem;
+  height: 0.10rem;
+  border-radius: 15px;
+}
 
+.cardsgerais {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.65rem;
+  margin-left: 5.75rem;
+  margin-top: 4rem;
+}
+
+.cardmesa {
+  background-color: rgb(255, 255, 255);
+  padding: 1.5rem 8rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 9.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardmesa img {
+  width: 16.75rem;
+  height: auto;
+}
+
+.cardmesa img.nairobi{
+  width: 12rem;
+  height: auto;
+  padding-top:5rem ;
+}
+.cardmesa img.mesa3{
+  width: 19rem;
+  height: auto;
+  padding-top: 8rem ;
+}
+.cardmesa img.mesa4{
+  width: 18.5rem;
+  height: auto;
+  padding:10rem 0 5rem 0 ;
+}
+.cardmesa img.mesa5{
+  width: 17.7rem;
+  height: auto;
+  padding: 4rem 0 5rem 0 ;
+}
+.cardmesa img.mesa6{
+  width: 15.5rem;
+  height: auto;
+  padding:5rem 0 4rem 0 ;
+}
+
+.cardmesa h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 1.4rem 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.cardmesa p {
+  font-size: 0.75rem;
+  margin: 0 0 1rem 0;
+  font-weight: bold;
+}
+.cardmesa p.preco {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 </style>
+
