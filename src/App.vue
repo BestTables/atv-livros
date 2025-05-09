@@ -728,25 +728,25 @@ footer {
   margin-left: 12rem;
   margin-top: 2rem;
   width: 91rem;
-  height: 0.1vh;
+  height: 0.09rem;
   border-radius: 15px;
 }
 
 .cardsgerais {
   display: flex;
   flex-wrap: wrap;
-  gap: 3vw;
-  margin-left: 5vw;
-  margin-top: 4vh;
+  gap: 2.65rem;
+  margin-left: 5.75rem;
+  margin-top: 4rem;
 }
 
 .cardmesa {
   background-color: rgb(255, 255, 255);
-  padding: 2vh 7vw;
+  padding: 1.5rem 8rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 8vw;
+  width: 9.3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -754,50 +754,50 @@ footer {
 }
 
 .cardmesa img {
-  width: 15vw;
+  width: 16.75rem;
   height: auto;
 }
 
 .cardmesa img.nairobi{
-  width: 11vw;
+  width: 12rem;
   height: auto;
-  padding-top:8vh ;
+  padding-top:5rem ;
 }
 .cardmesa img.mesa3{
-  width: 17vw;
+  width: 19rem;
   height: auto;
-  padding-top:12vh ;
+  padding-top: 8rem ;
 }
 .cardmesa img.mesa4{
-  width: 17vw;
+  width: 18.5rem;
   height: auto;
-  padding:10.5vh 0 7vh 0 ;
+  padding:10rem 0 5rem 0 ;
 }
 .cardmesa img.mesa5{
-  width: 15.5vw;
+  width: 17.7rem;
   height: auto;
-  padding:4vh 0 4vh 0 ;
+  padding: 4rem 0 5rem 0 ;
 }
 .cardmesa img.mesa6{
-  width: 14vw;
+  width: 15.5rem;
   height: auto;
-  padding:3vh 0 4vh 0 ;
+  padding:5rem 0 4rem 0 ;
 }
 
 .cardmesa h3 {
-  font-size: 1.0vw;
-  margin: 4vh 0 2vh 0;
+  font-size: 1.2rem;
+  margin: 0.5rem 0 1.4rem 0;
   color: #333;
   font-weight: bold;
 }
 
 .cardmesa p {
-  font-size: 0.7vw;
-  margin: 0 0 2vh 0;
+  font-size: 0.75rem;
+  margin: 0 0 1rem 0;
   font-weight: bold;
 }
 .cardmesa p.preco {
-  font-size: 0.9vw;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 </style>
