@@ -477,7 +477,7 @@ main {
   margin-left: 12rem;
   margin-top: 1.5rem;
   width: 91rem;
-  height: 0.1vh;
+  height: 0.15rem;
   border-radius: 15px;
 }
 
@@ -485,7 +485,7 @@ main {
   background-color: #8B4F24;
   margin-left: 12rem;
   width: 91rem;
-  height: 0.1vh;
+  height: 0.15rem;
   border-radius: 15px;
 }
 
@@ -494,7 +494,7 @@ main {
   margin-left: 12rem;
   margin-top: 3rem;
   width: 91rem;
-  height: 0.1vh;
+  height: 0.10rem;
   border-radius: 15px;
 }
 
@@ -722,13 +722,13 @@ footer {
   margin-bottom: 5rem;
   margin-top: 5rem;
   border-radius: 15px;
-} 
+}
 .linhaquetadividindo {
   background-color: #8B4F24;
   margin-left: 12rem;
   margin-top: 2rem;
   width: 91rem;
-  height: 0.09rem;
+  height: 0.10rem;
   border-radius: 15px;
 }
 
