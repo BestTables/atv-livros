@@ -12,13 +12,10 @@ import mesamadeiraHelena from "@/assets/mesamadeira6lugarhelena.jpg";
 
 const favoritos = ref([]);
 
-const toggleFavorito = (id) => {
-  if (favoritos.value.includes(id)) {
-    favoritos.value = favoritos.value.filter(fav => fav !== id);
-  } else {
-    favoritos.value.push(id);
-  }
+const limparCarrinho = () => {
+  carrinho.value = [];
 };
+
 
 const mostrarCarrinho = ref(false);
 const carrinho = ref([]);
@@ -94,16 +91,49 @@ const toggleCarrinho = () => {
   mostrarCarrinho.value = !mostrarCarrinho.value;
 };
 
+const mostrandoMensagem = ref(false);
+const mensagem = ref('');
+
+
 const adicionarAoCarrinho = (mesa) => {
-  if (!carrinho.value.find(m => m.id === mesa.id)) {
-    carrinho.value.push(mesa);
+  const itemExistente = carrinho.value.find(item => item.mesa.id === mesa.id);
+
+  if (itemExistente) {
+    itemExistente.quantidade += 1;
+  } else {
+    carrinho.value.push({
+      mesa,
+      quantidade: 1
+    });
   }
+
+  mensagem.value = `"${mesa.nome}" adicionado ao carrinho!`;
+  mostrandoMensagem.value = true;
+
+  setTimeout(() => {
+    mostrandoMensagem.value = false;
+  }, 2500);
 };
 
 const finalizarCompra = () => {
   // Lógica para finalizar a compra
   alert('Compra finalizada!');
 };
+const toggleFavorito = (id) => {
+  const index = favoritos.value.indexOf(id);
+  if (index === -1) {
+    favoritos.value.push(id);
+  } else {
+    favoritos.value.splice(index, 1);
+  }
+  console.log("Favoritos agora:", favoritos.value); // <-- Adicione isso
+};
+import { computed } from 'vue';
+
+const totalCarrinho = computed(() =>
+  carrinho.value.reduce((total, item) => total + item.mesa.preco * item.quantidade, 0)
+);
+
 </script>
 
 
@@ -133,14 +163,16 @@ const finalizarCompra = () => {
             <h3>Seu Carrinho</h3>
             <!-- Aqui você pode adicionar os itens do carrinho -->
             <ul>
-              <li v-for="item in carrinho" :key="item.id">
-                {{ item.nome }} - R$ {{ item.preco.toFixed(2) }}
-              </li>
-            </ul>
-            <button @click="finalizarCompra">Finalizar Compra</button>
-            <button @click="toggleCarrinho">Fechar Carrinho</button>
+  <li v-for="item in carrinho" :key="item.mesa.id">
+    {{ item.mesa.nome }} - R$ {{ item.mesa.preco.toFixed(2) }} x {{ item.quantidade }}
+  </li>
+  <p><strong>Total: R$ {{ totalCarrinho.toFixed(2) }}</strong></p>
+</ul>
+            <div class="botoesCarrinho">
+              <button @click="finalizarCompra">Finalizar Compra</button>
+              <button @click="limparCarrinho">Limpar Carrinho</button>
+            </div>
           </div>
-
           <div class="divididorDois"></div>
           <font-awesome-icon :icon="['fas', 'heart']" class="icons" />
           <div class="divididorDois"></div>
@@ -191,7 +223,7 @@ const finalizarCompra = () => {
           <font-awesome-icon :icon="['fas', 'truck']" class="iconsDois" />
           <p>Frete grátis para SC</p>
           <div class="divididorDepois"></div>
-            <font-awesome-icon :icon="['fas', 'star']" class="iconsDois" />
+          <font-awesome-icon :icon="['fas', 'star']" class="iconsDois" />
           <p>Bem avaliados</p>
           <div class="divididorDepois"></div>
           <font-awesome-icon :icon="['fas', 'thumbs-up']" class="iconsDois" />
@@ -218,6 +250,9 @@ const finalizarCompra = () => {
         </div>
       </div>
     </section>
+<div v-if="mostrandoMensagem" class="mensagem-carrinho">
+  {{ mensagem }}
+</div>
 
   </main>
   <footer>
@@ -258,7 +293,7 @@ header {
   font-family: "Merriweather Sans", sans-serif;
   font-weight: bold;
   margin-left: 16rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 main {
@@ -417,7 +452,7 @@ main {
   margin-left: 10.5rem;
   margin-top: 1.5rem;
   width: 135rem;
-  height: 0.1rem;
+  height: 0.15rem;
   border-radius: 15px;
 }
 
@@ -425,7 +460,7 @@ main {
   background-color: #8B4F24;
   margin-left: 10.5rem;
   width: 135rem;
-  height: 0.15rem;
+  height: 0.13rem;
   border-radius: 15px;
 }
 
@@ -434,13 +469,13 @@ main {
   margin-left: 10.5rem;
   margin-top: 3rem;
   width: 135rem;
-  height: 0.155rem;
+  height: 0.1rem;
   border-radius: 15px;
 }
 
 .imagensDois {
   display: flex;
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   margin-left: 18.5rem;
 }
 
@@ -456,7 +491,7 @@ main {
   margin-left: 6rem;
   margin-right: 13rem;
   width: 2px;
-  height: 4rem;
+  height: 3rem;
   background-color: #8B4F24;
   border-radius: 15px;
 }
@@ -464,7 +499,7 @@ main {
 .bloco {
   display: flex;
   margin-left: 11.5rem;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
 }
 
 .iconsDois {
@@ -472,24 +507,6 @@ main {
   padding-left: 0.5rem;
   font-size: 2.5rem;
   color: #441f05
-}
-
-.cardmesa-containe {
-  padding-top: 4rem;
-  margin-left: 12rem;
-  font-family: "Merriweather Sans", sans-serif;
-  background-color: #F0F0F0;
-  width: 10rem;
-  padding-bottom: 8rem;
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-  border-radius: 15px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* Isso vai criar 3 colunas */
-  gap: 2rem;
-  /* Define o espaço entre as colunas e linhas */
-
 }
 
 .lancamentos {
@@ -502,6 +519,12 @@ main {
   text-align: center;
   margin-bottom: 0.2rem;
   color: #333;
+  margin-top: 1.5rem;
+  margin-bottom: -1rem;
+  background-color: #F0F0F0;
+  border-radius: 15px;
+  width: 140rem;
+  padding-top: 4rem;
 }
 
 .cardmesa-container {
@@ -633,7 +656,7 @@ footer {
 
 .linhaDiferente {
   background-color: #F0F0F0;
-  width: 155rem;
+  width: 156.5rem;
   height: 0.1rem;
   border-radius: 15px;
 }
@@ -652,29 +675,38 @@ footer {
 
 .carrinho {
   position: fixed;
-  top: 10%;
-  right: 5%;
+  top: 8rem;
+  /* Altura exata do seu header */
+  left: 0;
+  width: 100vw;
+  height: calc(100rem - 8rem);
+  /* Subtrai a altura do header */
   background-color: white;
-  border: 1px solid #8B4F24;
-  padding: 2rem;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  width: 300px;
-  z-index: 1000;
+  z-index: 9999;
+  overflow-y: auto;
+  background-color: #F0F0F0;
+  margin-left: 10.5rem;
+  width: 135rem;
+  height: 55rem;
+  border-radius: 15px;
+  margin-top: 1.5rem;
 }
+
 
 .carrinho h3 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  padding-left: 65rem;
+  padding-top: 3rem;
 }
 
 .carrinho ul {
   list-style-type: none;
-  padding: 0;
+  padding-left: 10.5rem;
 }
 
 .carrinho li {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .carrinho button {
@@ -684,10 +716,16 @@ footer {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 2rem;
+  margin-top: 2rem;
 }
 
 .carrinho button:hover {
   background-color: #6d3e1f;
+}
+.botoesCarrinho{
+  padding-left: 10rem;
+  flex: 1;
 }
 
 .produtos h2 {
@@ -793,4 +831,17 @@ footer {
   font-size: 1.2rem;
   font-weight: bold;
 }
+.mensagem-carrinho {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background-color: #8B4F24;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+  font-weight: bold;
+}
+
 </style>
