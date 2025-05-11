@@ -5,7 +5,7 @@ import mesaRustica from '@/assets/mesaRustica.png';
 import mesabranca from "@/assets/mesabranca.png";
 import mesapreta from "@/assets/mesapreta.png";
 import mesabizarra from "@/assets/mesabizarra.png";
-import mesaRedondaNairobi from "@/assets/-mesa-de-jantar-redonda-nairobi-verniz-nozes-4-lugares.webp";
+import mesaRedondaNairobi from "@/assets/-mesa-de-jantar-redonda-nairobi-verniz-nozes-4-lugares.png";
 import mesaEmLmadeiramacica from "@/assets/mesaemLmadeiramaciça.png";
 import mesaEscrivaninha from "@/assets/mesa escrivaninha.webp";
 import mesamadeiraHelena from "@/assets/mesamadeira6lugarhelena.jpg";
@@ -15,7 +15,7 @@ const favoritos = ref([]);
 const limparCarrinho = () => {
   carrinho.value = [];
 };
-
+  
 
 const mostrarCarrinho = ref(false);
 const carrinho = ref([]);
@@ -23,14 +23,14 @@ const carrinho = ref([]);
 const lancamentos = ref([
   {
     id: 10,
-    nome: 'Mesa De Jantar Branca 10 Lugares Madeira Rústica',
+    nome: 'Mesa De Jantar Branca 10 Lugares Madeira',
     descricao: 'Criados artesanalmente cada móvel é único. Feitos em madeira pura, sem adição de fibras sintéticas ou aglomerados.',
     preco: 4283.93,
     imagem: madeiraBranca
   },
   {
     id: 11,
-    nome: 'Mesa Sala De Jantar Em Madeira Maciça Rústica',
+    nome: 'Mesa Sala De Jantar Em Madeira Maciça',
     descricao: 'Garantimos sua resistência sem sofrer deformações por umidade ou luz solar, se bem cuidados, podendo durar diversos anos em ótimas condições',
     preco: 3699.02,
     imagem: mesaRustica
@@ -63,27 +63,7 @@ const lancamentos = ref([
     preco: 996.00,
     imagem: mesaRedondaNairobi
   },
-  {
-    id: 4,
-    nome: "Mesa L de madeira maciça",
-    descricao: "Bancada em L de madeira maciça, estilo rústico, ideal para otimizar seu espaço.",
-    preco: 4917.00,
-    imagem: mesaEmLmadeiramacica
-  },
-  {
-    id: 3,
-    nome: "Mesa Freijó Madeirado",
-    descricao: "Mesa de computador freijó com pés metalon, estilo industrial, perfeita para seu ambiente.",
-    preco: 369.99,
-    imagem: mesaEscrivaninha
-  },
-  {
-    id: 2,
-    nome: "Mesa madeira Helena imbuia",
-    descricao: "Mesa de madeira imbuia, com design clássico, ideal para refeições em família.",
-    preco: 348.90,
-    imagem: mesamadeiraHelena
-  },
+
 
 ]);
 
@@ -134,6 +114,17 @@ const totalCarrinho = computed(() =>
   carrinho.value.reduce((total, item) => total + item.mesa.preco * item.quantidade, 0)
 );
 
+const removerDoCarrinho = (mesa) => {
+  const index = carrinho.value.findIndex(item => item.mesa.id === mesa.id);
+
+  if (index !== -1) {
+    if (carrinho.value[index].quantidade > 1) {
+      carrinho.value[index].quantidade -= 1;
+    } else {
+      carrinho.value.splice(index, 1); // Remove completamente se só tem 1
+    }
+  }
+};
 </script>
 
 
@@ -157,22 +148,38 @@ const totalCarrinho = computed(() =>
         <div class="img_header">
           <!-- Coloque isso dentro da tag <header> -->
           <div @click="toggleCarrinho" class="icone-carrinho">
-            <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+            <font-awesome-icon :icon="['fas', 'cart-shopping']" class="icon-carrinho" />
           </div>
+          <transition name="carrinho-fade">
           <div v-if="mostrarCarrinho" class="carrinho">
             <h3>Seu Carrinho</h3>
             <!-- Aqui você pode adicionar os itens do carrinho -->
-            <ul>
-  <li v-for="item in carrinho" :key="item.mesa.id">
-    {{ item.mesa.nome }} - R$ {{ item.mesa.preco.toFixed(2) }} x {{ item.quantidade }}
-  </li>
-  <p><strong>Total: R$ {{ totalCarrinho.toFixed(2) }}</strong></p>
-</ul>
-            <div class="botoesCarrinho">
+
+            <div class="vazio" v-if="carrinho.length === 0">
+              <p>Carrinho vazio</p>
+            </div>
+            <ul v-else>
+              <li v-for="item in carrinho" :key="item.mesa.id">
+                <div class="item">
+                  <img :src="item.mesa.imagem" :alt="item.mesa.nome" class="imagem-item" />
+                  <span class="nome-mesa">{{ item.mesa.nome }}</span>
+                  <div class="precoCarrinho">
+                    - R$ {{ item.mesa.preco.toFixed(2) }} x{{ item.quantidade }}
+                  </div>
+                  <button class="botaoInd" @click="removerDoCarrinho(item.mesa)">-</button>
+                </div>
+              </li>
+              <p><strong>Total: R$ {{ totalCarrinho.toFixed(2) }}</strong></p>
+            </ul>
+
+
+            <div class="botoesCarrinho"  v-if="carrinho.length > 0">
               <button @click="finalizarCompra">Finalizar Compra</button>
               <button @click="limparCarrinho">Limpar Carrinho</button>
+              <button @click="mostrarCarrinho = false">Fechar carrinho</button>
             </div>
           </div>
+          </transition>
           <div class="divididorDois"></div>
           <font-awesome-icon :icon="['fas', 'heart']" class="icons" />
           <div class="divididorDois"></div>
@@ -250,9 +257,9 @@ const totalCarrinho = computed(() =>
         </div>
       </div>
     </section>
-<div v-if="mostrandoMensagem" class="mensagem-carrinho">
-  {{ mensagem }}
-</div>
+    <div v-if="mostrandoMensagem" class="mensagem-carrinho">
+      {{ mensagem }}
+    </div>
 
   </main>
   <footer>
@@ -530,7 +537,7 @@ main {
 .cardmesa-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem 0.5rem;
+  gap: 8rem;
   /* Ajuste do gap */
   justify-content: space-between;
   width: 130rem;
@@ -675,7 +682,7 @@ footer {
 
 .carrinho {
   position: fixed;
-  top: 8rem;
+  top: 7rem;
   /* Altura exata do seu header */
   left: 0;
   width: 100vw;
@@ -685,24 +692,26 @@ footer {
   z-index: 9999;
   overflow-y: auto;
   background-color: #F0F0F0;
-  margin-left: 10.5rem;
-  width: 135rem;
-  height: 55rem;
+  margin-left: 100rem;
+  width: 50rem;
+  height: 58.5rem;
   border-radius: 15px;
   margin-top: 1.5rem;
+  border: 2px solid #3b2311;
 }
 
 
 .carrinho h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 3rem;
-  padding-left: 65rem;
+  padding-left: 19rem;
   padding-top: 3rem;
 }
 
 .carrinho ul {
   list-style-type: none;
-  padding-left: 10.5rem;
+  padding-left: 3rem;
+  padding-right: 2rem;
 }
 
 .carrinho li {
@@ -716,16 +725,13 @@ footer {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 2rem;
-  margin-top: 2rem;
+  margin-left: 5rem;
+  margin-top: 3.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .carrinho button:hover {
   background-color: #6d3e1f;
-}
-.botoesCarrinho{
-  padding-left: 10rem;
-  flex: 1;
 }
 
 .produtos h2 {
@@ -761,7 +767,7 @@ footer {
 .cardsgerais {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.65rem;
+ 
   margin-left: 5.75rem;
   margin-top: 4rem;
 }
@@ -831,6 +837,7 @@ footer {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
 .mensagem-carrinho {
   position: fixed;
   top: 2rem;
@@ -839,9 +846,136 @@ footer {
   color: white;
   padding: 1rem 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 9999;
   font-weight: bold;
 }
 
+.imagem-item {
+  width: 10rem;
+  height: auto;
+  margin-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  /* Alinha o nome e a imagem no topo */
+  border: 2px solid #3b2311;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+.imagem-item {
+  width: 8rem;
+  /* Ajuste o tamanho da imagem conforme necessário */
+  height: auto;
+  margin-right: 1rem;
+  padding-top: 1rem;
+}
+
+.nome-mesa {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 4rem;
+  /* Ajusta a posição para cima */
+}
+
+.precoCarrinho {
+  padding-top: 3.6rem;
+  padding-left: 1rem;
+}
+
+.botaoInd {
+  background-color: #8B4F24;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botaoInd:hover {
+  background-color: #A55B2C;
+}
+
+.vazio {
+  padding-left: 20rem;
+  padding-top: 20rem;
+}
+
+.cardmesa {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.cardmesa:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Suavizando o efeito de hover nos botões */
+button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #3b2311;
+  /* Exemplo de cor amarela suave */
+  transform: scale(1.05);
+  /* Dá um efeito de zoom suave */
+}
+.icons {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.icons:hover {
+  transform: scale(1.2);
+}
+.icon-carrinho {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-carrinho:hover {
+  transform: scale(1.2);
+}
+a {
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+a:hover {
+  transform: scale(1.1); /* Um pouco mais sutil do que o anterior */
+}
+.icone-favorito-final {
+  transition: transform 0.3s ease-in-out;
+}
+
+.icone-favorito-final:hover {
+  transform: scale(1.2); /* Zoom mais forte ao passar o mouse */
+}
+.item {
+  transition: transform 0.4s ease; /* Transição mais suave */
+}
+
+.item:hover {
+  transform: scale(1.05); /* Zoom bem suave */
+}
+/* Quando o carrinho está entrando */
+.carrinho-fade-enter-active, .carrinho-fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+/* Quando o carrinho começa a aparecer */
+.carrinho-fade-enter, .carrinho-fade-leave-to /* .carrinho-fade-leave-active em <2.1.8 */ {
+  opacity: 0;
+}
 </style>
