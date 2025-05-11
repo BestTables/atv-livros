@@ -6,16 +6,13 @@ import mesabranca from "@/assets/mesabranca.png";
 import mesapreta from "@/assets/mesapreta.png";
 import mesabizarra from "@/assets/mesabizarra.png";
 import mesaRedondaNairobi from "@/assets/-mesa-de-jantar-redonda-nairobi-verniz-nozes-4-lugares.png";
-import mesaEmLmadeiramacica from "@/assets/mesaemLmadeiramaciça.png";
-import mesaEscrivaninha from "@/assets/mesa escrivaninha.webp";
-import mesamadeiraHelena from "@/assets/mesamadeira6lugarhelena.jpg";
 
 const favoritos = ref([]);
 
 const limparCarrinho = () => {
   carrinho.value = [];
 };
-  
+
 
 const mostrarCarrinho = ref(false);
 const carrinho = ref([]);
@@ -96,7 +93,6 @@ const adicionarAoCarrinho = (mesa) => {
 };
 
 const finalizarCompra = () => {
-  // Lógica para finalizar a compra
   alert('Compra finalizada!');
 };
 const toggleFavorito = (id) => {
@@ -106,7 +102,7 @@ const toggleFavorito = (id) => {
   } else {
     favoritos.value.splice(index, 1);
   }
-  console.log("Favoritos agora:", favoritos.value); // <-- Adicione isso
+  console.log("Favoritos agora:", favoritos.value);
 };
 import { computed } from 'vue';
 
@@ -121,7 +117,7 @@ const removerDoCarrinho = (mesa) => {
     if (carrinho.value[index].quantidade > 1) {
       carrinho.value[index].quantidade -= 1;
     } else {
-      carrinho.value.splice(index, 1); // Remove completamente se só tem 1
+      carrinho.value.splice(index, 1);
     }
   }
 };
@@ -146,39 +142,39 @@ const removerDoCarrinho = (mesa) => {
         <a href="#">Envio</a>
         <a href="#">Devoluções</a>
         <div class="img_header">
-          <!-- Coloque isso dentro da tag <header> -->
+
           <div @click="toggleCarrinho" class="icone-carrinho">
             <font-awesome-icon :icon="['fas', 'cart-shopping']" class="icon-carrinho" />
           </div>
           <transition name="carrinho-fade">
-          <div v-if="mostrarCarrinho" class="carrinho">
-            <h3>Seu Carrinho</h3>
-            <!-- Aqui você pode adicionar os itens do carrinho -->
+            <div v-if="mostrarCarrinho" class="carrinho">
+              <h3>Seu Carrinho</h3>
 
-            <div class="vazio" v-if="carrinho.length === 0">
-              <p>Carrinho vazio</p>
-            </div>
-            <ul v-else>
-              <li v-for="item in carrinho" :key="item.mesa.id">
-                <div class="item">
-                  <img :src="item.mesa.imagem" :alt="item.mesa.nome" class="imagem-item" />
-                  <span class="nome-mesa">{{ item.mesa.nome }}</span>
-                  <div class="precoCarrinho">
-                    - R$ {{ item.mesa.preco.toFixed(2) }} x{{ item.quantidade }}
+
+              <div class="vazio" v-if="carrinho.length === 0">
+                <p>Carrinho vazio</p>
+              </div>
+              <ul v-else>
+                <li v-for="item in carrinho" :key="item.mesa.id">
+                  <div class="item">
+                    <img :src="item.mesa.imagem" :alt="item.mesa.nome" class="imagem-item" />
+                    <span class="nome-mesa">{{ item.mesa.nome }}</span>
+                    <div class="precoCarrinho">
+                      - R$ {{ item.mesa.preco.toFixed(2) }} x{{ item.quantidade }}
+                    </div>
+                    <button class="botaoInd" @click="removerDoCarrinho(item.mesa)">-</button>
                   </div>
-                  <button class="botaoInd" @click="removerDoCarrinho(item.mesa)">-</button>
-                </div>
-              </li>
-              <p><strong>Total: R$ {{ totalCarrinho.toFixed(2) }}</strong></p>
-            </ul>
+                </li>
+                <p><strong>Total: R$ {{ totalCarrinho.toFixed(2) }}</strong></p>
+              </ul>
 
 
-            <div class="botoesCarrinho"  v-if="carrinho.length > 0">
-              <button @click="finalizarCompra">Finalizar Compra</button>
-              <button @click="limparCarrinho">Limpar Carrinho</button>
-              <button @click="mostrarCarrinho = false">Fechar carrinho</button>
+              <div class="botoesCarrinho" v-if="carrinho.length > 0">
+                <button @click="finalizarCompra">Finalizar Compra</button>
+                <button @click="limparCarrinho">Limpar Carrinho</button>
+                <button @click="mostrarCarrinho = false">Fechar carrinho</button>
+              </div>
             </div>
-          </div>
           </transition>
           <div class="divididorDois"></div>
           <font-awesome-icon :icon="['fas', 'heart']" class="icons" />
@@ -538,13 +534,13 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 8rem;
-  /* Ajuste do gap */
+
   justify-content: space-between;
   width: 130rem;
   background-color: #f0f0f0;
-  /* Exemplo de cor de fundo */
+
   padding: 5rem;
-  /* Padding para dar mais espaço dentro do container */
+
   border-radius: 15px;
   margin-bottom: 1.5rem;
 }
@@ -683,11 +679,11 @@ footer {
 .carrinho {
   position: fixed;
   top: 7rem;
-  /* Altura exata do seu header */
+
   left: 0;
   width: 100vw;
   height: calc(100rem - 8rem);
-  /* Subtrai a altura do header */
+
   background-color: white;
   z-index: 9999;
   overflow-y: auto;
@@ -767,7 +763,7 @@ footer {
 .cardsgerais {
   display: flex;
   flex-wrap: wrap;
- 
+
   margin-left: 5.75rem;
   margin-top: 4rem;
 }
@@ -861,7 +857,7 @@ footer {
 .item {
   display: flex;
   align-items: flex-start;
-  /* Alinha o nome e a imagem no topo */
+
   border: 2px solid #3b2311;
   border-radius: 15px;
   padding: 1rem;
@@ -869,7 +865,7 @@ footer {
 
 .imagem-item {
   width: 8rem;
-  /* Ajuste o tamanho da imagem conforme necessário */
+
   height: auto;
   margin-right: 1rem;
   padding-top: 1rem;
@@ -879,7 +875,7 @@ footer {
   font-size: 1rem;
   font-weight: bold;
   margin-top: 4rem;
-  /* Ajusta a posição para cima */
+
 }
 
 .precoCarrinho {
@@ -919,17 +915,18 @@ footer {
   z-index: 10;
 }
 
-/* Suavizando o efeito de hover nos botões */
+
 button {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
   background-color: #3b2311;
-  /* Exemplo de cor amarela suave */
+
   transform: scale(1.05);
-  /* Dá um efeito de zoom suave */
+
 }
+
 .icons {
   display: inline-block;
   transition: transform 0.3s ease;
@@ -939,6 +936,7 @@ button:hover {
 .icons:hover {
   transform: scale(1.2);
 }
+
 .icon-carrinho {
   display: inline-block;
   transition: transform 0.3s ease;
@@ -948,34 +946,39 @@ button:hover {
 .icon-carrinho:hover {
   transform: scale(1.2);
 }
+
 a {
   transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 a:hover {
-  transform: scale(1.1); /* Um pouco mais sutil do que o anterior */
+  transform: scale(1.1);
 }
+
 .icone-favorito-final {
   transition: transform 0.3s ease-in-out;
 }
 
 .icone-favorito-final:hover {
-  transform: scale(1.2); /* Zoom mais forte ao passar o mouse */
+  transform: scale(1.2);
 }
+
 .item {
-  transition: transform 0.4s ease; /* Transição mais suave */
+  transition: transform 0.4s ease;
 }
 
 .item:hover {
-  transform: scale(1.05); /* Zoom bem suave */
+  transform: scale(1.05);
 }
-/* Quando o carrinho está entrando */
-.carrinho-fade-enter-active, .carrinho-fade-leave-active {
+
+.carrinho-fade-enter-active,
+.carrinho-fade-leave-active {
   transition: opacity 0.5s ease;
 }
 
-/* Quando o carrinho começa a aparecer */
-.carrinho-fade-enter, .carrinho-fade-leave-to /* .carrinho-fade-leave-active em <2.1.8 */ {
+
+.carrinho-fade-enter,
+.carrinho-fade-leave-to {
   opacity: 0;
 }
 </style>
